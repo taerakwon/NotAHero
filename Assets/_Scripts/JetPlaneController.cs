@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class JetPlaneController : MonoBehaviour {
     // Private Instant Variables
@@ -7,26 +8,26 @@ public class JetPlaneController : MonoBehaviour {
     private Vector2 _currentPosition;
     private float _playerInput;
     private float _speed;
-    private AudioSource[] Sounds;
-    private AudioSource _ouchSound;
-    private AudioSource _moneySound;
 
     // Public Instance Variables
-    
+	public GameController gameController;
+
+	[Header("Sounds")]
+    public AudioSource OuchSound;
+    public AudioSource MoneySound;
+
     
 
     // Use this for initialization
     void Start () {
         this._speed = 6;
         this._transform = this.GetComponent<Transform>();	
-        this.Sounds = this.GetComponents<AudioSource>();
-        this._moneySound = this.Sounds[1];
-        this._ouchSound = this.Sounds[2];
 	}
 	
 	// Update is called once per frame
 	void Update () {
         this._move();
+		this._deductMoney();
 	}
 
     // Move method
@@ -53,7 +54,7 @@ public class JetPlaneController : MonoBehaviour {
             this._currentPosition += new Vector2(0, 0);
         }
 
-        this._transform.position = new Vector2(-240f, Mathf.Clamp(this._currentPosition.y, -190f, 190f));
+        this._transform.position = new Vector2(-230f, Mathf.Clamp(this._currentPosition.y, -190f, 190f));
     }
 
     // On Collide Method
@@ -62,12 +63,20 @@ public class JetPlaneController : MonoBehaviour {
     {
         if(other.gameObject.CompareTag("Money"))
         {
-            this._moneySound.Play();
+            this.MoneySound.Play();
+			this.gameController.MoneyValue += 500;
         }
         if(other.gameObject.CompareTag("Drone"))
         {
-            this._ouchSound.Play();
+            this.OuchSound.Play();
+			this.gameController.HealthValue -= 25;
         }
     }
+
+	// Private Method for Automatically Deducting Money
+	private void _deductMoney()
+	{
+		this.gameController.MoneyValue -= 1;
+	}
 
 }

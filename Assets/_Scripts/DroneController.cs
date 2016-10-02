@@ -56,7 +56,7 @@ public class DroneController : MonoBehaviour {
         }
 
         // If drone hits border, bounce them back to screen
-		if (this._transform.position.y > 182f || this._transform.position.y < -161f)
+		if (this._transform.position.y > 185f || this._transform.position.y < -165f)
 		{
 			this._drift *= -1;
 		}
