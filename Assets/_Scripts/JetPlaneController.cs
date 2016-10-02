@@ -7,11 +7,21 @@ public class JetPlaneController : MonoBehaviour {
     private Vector2 _currentPosition;
     private float _playerInput;
     private float _speed;
+    private AudioSource[] Sounds;
+    private AudioSource _ouchSound;
+    private AudioSource _moneySound;
+
+    // Public Instance Variables
+    
+    
 
     // Use this for initialization
     void Start () {
-        this._speed = 5;
+        this._speed = 6;
         this._transform = this.GetComponent<Transform>();	
+        this.Sounds = this.GetComponents<AudioSource>();
+        this._moneySound = this.Sounds[1];
+        this._ouchSound = this.Sounds[2];
 	}
 	
 	// Update is called once per frame
@@ -52,7 +62,11 @@ public class JetPlaneController : MonoBehaviour {
     {
         if(other.gameObject.CompareTag("Money"))
         {
-            Debug.Log("Money Hit!");
+            this._moneySound.Play();
+        }
+        if(other.gameObject.CompareTag("Drone"))
+        {
+            this._ouchSound.Play();
         }
     }
 
