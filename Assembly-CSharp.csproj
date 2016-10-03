@@ -49,6 +49,7 @@
      <Compile Include="Assets\_Scripts\GameController.cs" />
      <Compile Include="Assets\_Scripts\InstructionController.cs" />
      <Compile Include="Assets\_Scripts\JetPlaneController.cs" />
+     <Compile Include="Assets\_Scripts\LaserController.cs" />
      <Compile Include="Assets\_Scripts\MainMenuController.cs" />
      <Compile Include="Assets\_Scripts\MoneyController.cs" />
      <Compile Include="Assets\_Scripts\SkyController.cs" />

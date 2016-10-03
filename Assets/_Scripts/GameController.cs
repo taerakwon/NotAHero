@@ -10,9 +10,8 @@ public class GameController : MonoBehaviour {
 	private int _scoreValue;
 
     // PUBLIC INSTANCE VARIABLES
-    public int droneNumber = 3;
-    public GameObject drone;
-    
+    public int droneNumber = 7;
+    public GameObject drone;    
 
     [Header("Labels")]
     public Text HealthLabel;
@@ -24,6 +23,7 @@ public class GameController : MonoBehaviour {
 	[Header("Game Objects")]
 	public GameObject JetPlane;
 	public GameObject Money;
+	public GameObject Laser;
 
 	[Header("Buttons")]
 	public Button RestartButton;
@@ -110,12 +110,12 @@ public class GameController : MonoBehaviour {
 			this.MoneyLabel.gameObject.SetActive (false);
 			this.ScoreLabel.gameObject.SetActive (false);
 			this.JetPlane.gameObject.SetActive (false);
+			this.Laser.gameObject.SetActive (false);
 			this.Money.gameObject.SetActive (false);
 			this.RestartButton.gameObject.SetActive (true);
 			this.MainMenuButton.gameObject.SetActive (true);
 			this.EndSound.Play ();
 		}
-
 
 	}
 

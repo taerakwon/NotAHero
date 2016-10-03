@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic; // List
 
 public class JetPlaneController : MonoBehaviour {
     // Private Instant Variables
@@ -9,6 +10,7 @@ public class JetPlaneController : MonoBehaviour {
     private float _playerInput;
     private float _speed;
 
+
     // Public Instance Variables
 	public GameController gameController;
 
@@ -16,18 +18,18 @@ public class JetPlaneController : MonoBehaviour {
     public AudioSource OuchSound;
     public AudioSource MoneySound;
 
-    
-
+	   
     // Use this for initialization
     void Start () {
         this._speed = 6;
-        this._transform = this.GetComponent<Transform>();	
+		this._transform = this.GetComponent<Transform> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         this._move();
 		this._deductMoney();
+
 	}
 
     // Move method
@@ -45,8 +47,8 @@ public class JetPlaneController : MonoBehaviour {
         }
 
         if (this._playerInput < -0)
+			this._currentPosition -= new Vector2(0, this._speed);
         {
-            this._currentPosition -= new Vector2(0, this._speed);
         }
 
         if (this._playerInput == 0)
@@ -65,12 +67,15 @@ public class JetPlaneController : MonoBehaviour {
         {
             this.MoneySound.Play();
 			this.gameController.MoneyValue += 500;
-
+			MoneyController mc = (MoneyController)other.GetComponent (typeof(MoneyController));
+			mc.Destroy ();
         }
         if(other.gameObject.CompareTag("Drone"))
-        {
+		{
             this.OuchSound.Play();
 			this.gameController.HealthValue -= 25;
+			DroneController dc = (DroneController)other.GetComponent (typeof(DroneController));
+			dc.Destroy ();
         }
     }
 
@@ -79,5 +84,6 @@ public class JetPlaneController : MonoBehaviour {
 	{
 		this.gameController.MoneyValue -= 1;
 	}
+
 
 }

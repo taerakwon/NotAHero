@@ -3,10 +3,11 @@ using System.Collections;
 
 public class DroneController : MonoBehaviour {
 
- // PRIVATE VARIABLES
+ 	// PRIVATE VARIABLES
     private int _speed;
 	private int _drift;
     private Transform _transform;
+
 
     // PUBLIC PROPERTIES
     public int Speed
@@ -71,4 +72,10 @@ public class DroneController : MonoBehaviour {
 		this._drift = Random.Range(1, 3);
         this._transform.position = new Vector2(Random.Range(600f, 800f), Random.Range(-161, 182));
     }
+
+	// Public Reset Method
+	public void Destroy()
+	{
+		this._reset ();
+	}
 }

@@ -59,5 +59,10 @@ public class MoneyController : MonoBehaviour {
     {
         this._transform.position = new Vector2(Random.Range(800f, 1200f), Random.Range(-161, 182));
     }
-		
+
+	// Public Reset Method
+	public void Destroy()
+	{
+		this._reset ();
+	}
 }
