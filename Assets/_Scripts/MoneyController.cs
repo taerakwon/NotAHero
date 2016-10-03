@@ -55,8 +55,9 @@ public class MoneyController : MonoBehaviour {
     }
 
     // Resets money game object's position
-    private void _reset()
+    public void _reset()
     {
         this._transform.position = new Vector2(Random.Range(800f, 1200f), Random.Range(-161, 182));
     }
+		
 }

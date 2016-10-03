@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
     // PRIVATE INSTANCE VARIABLES
     private int _healthValue;
     private int _moneyValue;
 	private int _scoreValue;
-
 
     // PUBLIC INSTANCE VARIABLES
     public int droneNumber = 3;
@@ -27,6 +27,10 @@ public class GameController : MonoBehaviour {
 
 	[Header("Buttons")]
 	public Button RestartButton;
+	public Button MainMenuButton;
+
+	[Header("End Game Sound")]
+	public AudioSource EndSound = new AudioSource ();
 
     // PUBLIC METHODS
     public int HealthValue
@@ -37,7 +41,11 @@ public class GameController : MonoBehaviour {
         set
         {
             this._healthValue = value;
-			this.HealthLabel.text = "HEALTH: " + this._healthValue + " %";
+			if (this._healthValue <= 0) {
+				this._endGame ();
+			} else {
+				this.HealthLabel.text = "HEALTH: " + this._healthValue + " %";
+			}
         }
     }
 
@@ -49,7 +57,11 @@ public class GameController : MonoBehaviour {
         set
         {
             this._moneyValue = value;
-			this.MoneyLabel.text = "MONEY: " + this._moneyValue;
+			if (this._moneyValue <= 0) {
+				this._endGame ();
+			} else {
+				this.MoneyLabel.text = "MONEY: " + this._moneyValue;
+			}
         }
     }
 
@@ -73,6 +85,7 @@ public class GameController : MonoBehaviour {
 		this.GameOverLabel.gameObject.SetActive(false);
 		this.FinalScoreLabel.gameObject.SetActive (false);
 		this.RestartButton.gameObject.SetActive (false);
+		this.MainMenuButton.gameObject.SetActive (false);
 
         for (int droneCount = 0; droneCount < this.droneNumber; droneCount++)
         {
@@ -83,7 +96,6 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this._endGame ();
 	}
 
 
@@ -100,7 +112,25 @@ public class GameController : MonoBehaviour {
 			this.JetPlane.gameObject.SetActive (false);
 			this.Money.gameObject.SetActive (false);
 			this.RestartButton.gameObject.SetActive (true);
-		}		
+			this.MainMenuButton.gameObject.SetActive (true);
+			this.EndSound.Play ();
+		}
+
+
 	}
+
+	// Public Restart Game
+	public void RestartGame()
+	{
+		SceneManager.LoadScene ("GameScene");		
+	}
+
+	// Public MainMenu_Click Method
+	public void MainMenu_Click()
+	{
+		SceneManager.LoadScene ("MainMenu");
+	}
+
+
 }
 

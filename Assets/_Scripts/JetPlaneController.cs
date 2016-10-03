@@ -65,6 +65,7 @@ public class JetPlaneController : MonoBehaviour {
         {
             this.MoneySound.Play();
 			this.gameController.MoneyValue += 500;
+
         }
         if(other.gameObject.CompareTag("Drone"))
         {
