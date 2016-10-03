@@ -8,6 +8,8 @@ public class DroneController : MonoBehaviour {
 	private int _drift;
     private Transform _transform;
 
+	[Header("Sound")]
+	public AudioSource ExplosionSound;
 
     // PUBLIC PROPERTIES
     public int Speed
@@ -76,6 +78,7 @@ public class DroneController : MonoBehaviour {
 	// Public Reset Method
 	public void Destroy()
 	{
+		this.ExplosionSound.Play ();
 		this._reset ();
 	}
 }
