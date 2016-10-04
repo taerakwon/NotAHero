@@ -1,6 +1,19 @@
-﻿using UnityEngine;
+﻿/* 
+ * FILE: DroneController.cs
+ * AUTHOR: TAERA KWON
+ * LAST MODIFIED BY: TAERA kWON
+ * LAST MODIFIED DATE: OCT 3, 2016
+ * PROGRAM DESCRIPTION: DRONE CONTROLLER CLASS FOR ITS BEHAVIOUR
+ * REVISION HISTORY
+ * 20161002: 	CREATED
+ * 				MOVEMENT BEHAVIOUR ADDED
+ * 20161003:	DESTROY METHOD
+*/
+
+using UnityEngine;
 using System.Collections;
 
+// CONTROLLER FOR DRONE OBJECT
 public class DroneController : MonoBehaviour {
 
  	// PRIVATE VARIABLES

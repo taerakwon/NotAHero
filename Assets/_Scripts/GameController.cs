@@ -1,8 +1,26 @@
-﻿using UnityEngine;
+﻿/* 
+ * FILE: GameController.cs
+ * AUTHOR: TAERA KWON
+ * LAST MODIFIED BY: TAERA kWON
+ * LAST MODIFIED DATE: OCT 3, 2016
+ * PROGRAM DESCRIPTION: GAME CONTROLLER CLASS FOR MAIN GAME'S CONTROL
+ * REVISION HISTORY
+ * 20161002: 	CREATED
+ * 				HEALTH, MONEY, SCORE SYSTEM BEHAVIOUR ADDED
+ * 				REMOVAL OF OBJECTS WHEN GAME ENDS
+ * 				END SOUND ADDED
+ * 20161003:	SCENE MANAGEMENT ADDED
+ * 				SCORING SYSTEM UPDATED
+ * 				
+*/
+
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+// GAME CONTROLLER
 public class GameController : MonoBehaviour {
     // PRIVATE INSTANCE VARIABLES
     private int _healthValue;
@@ -13,6 +31,7 @@ public class GameController : MonoBehaviour {
     public int droneNumber = 7;
     public GameObject drone;    
 
+	// HEADER FOR TEXT LABELS
     [Header("Labels")]
     public Text HealthLabel;
     public Text MoneyLabel;
@@ -25,14 +44,17 @@ public class GameController : MonoBehaviour {
 	public GameObject Money;
 	public GameObject Laser;
 
+	// HEADER FOR BUTTONS
 	[Header("Buttons")]
 	public Button RestartButton;
 	public Button MainMenuButton;
 
+	// HEADER FOR END GAME SOUND
 	[Header("End Game Sound")]
 	public AudioSource EndSound = new AudioSource ();
 
     // PUBLIC METHODS
+	// UPDATES HEALTH VALUE
     public int HealthValue
     {
         get{
@@ -49,6 +71,7 @@ public class GameController : MonoBehaviour {
         }
     }
 
+	// UPDATES MONEY VALUE
         public int MoneyValue
     {
         get{
@@ -65,6 +88,7 @@ public class GameController : MonoBehaviour {
         }
     }
 
+	// UPDATES SCORE VALUE
 	public int ScoreValue
 	{
 		get{

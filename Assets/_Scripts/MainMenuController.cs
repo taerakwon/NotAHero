@@ -1,4 +1,16 @@
-﻿using UnityEngine;
+﻿/* 
+ * FILE: MainMenuController.cs
+ * AUTHOR: TAERA KWON
+ * LAST MODIFIED BY: TAERA kWON
+ * LAST MODIFIED DATE: OCT 2, 2016
+ * PROGRAM DESCRIPTION: INSTRUCTION SCENE CONTROLLER
+ * REVISION HISTORY
+ * 20161002: 	FOR MAIN MENU SCENE - HAVE BUTTONS THAT LOADS GAME OR MAIN INSTRUCTION SCENE
+ * 				
+*/
+
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 

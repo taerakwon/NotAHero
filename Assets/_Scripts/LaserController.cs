@@ -1,4 +1,16 @@
-﻿using UnityEngine;
+﻿/* 
+ * FILE: LaserController.cs
+ * AUTHOR: TAERA KWON
+ * LAST MODIFIED BY: TAERA kWON
+ * LAST MODIFIED DATE: OCT 3, 2016
+ * PROGRAM DESCRIPTION: CONTROLLER FOR LASER GAME OBJECT
+ * REVISION HISTORY
+ * 20161003:	LASER OBJECT BEHAVIOUR AND OBJECT ADDED
+ * 				ADDED COLLISION TRIGGER BEHAVIOURS
+ * 				
+*/
+
+using UnityEngine;
 using System.Collections;
 
 public class LaserController : MonoBehaviour {
