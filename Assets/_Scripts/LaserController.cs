@@ -54,7 +54,7 @@ public class LaserController : MonoBehaviour {
 			if (collide.gameObject.CompareTag ("Drone")) {		
 				DroneController dc = (DroneController)collide.GetComponent (typeof(DroneController));
 				dc.Destroy ();
-				this.gameController.MoneyValue += 10;
+				this.gameController.MoneyValue += 50;
 				this.gameController.ScoreValue += 1;
 				this._transform.position = new Vector2 (360, 0);
 			}
