@@ -8,6 +8,7 @@ public class DroneController : MonoBehaviour {
 	private int _drift;
     private Transform _transform;
 
+	// FOR EXPLOSION SOUND OF DRONE
 	[Header("Sound")]
 	public AudioSource ExplosionSound;
 
@@ -71,7 +72,7 @@ public class DroneController : MonoBehaviour {
         // Changes the speed of drone moving left
 		this._speed = Random.Range(2, 4);
         // Changes the speed of drone moving up or down
-		this._drift = Random.Range(1, 3);
+		this._drift = Random.Range(0, 3);
         this._transform.position = new Vector2(Random.Range(600f, 800f), Random.Range(-161, 182));
     }
 

@@ -2,10 +2,12 @@
 using System.Collections;
 
 public class LaserController : MonoBehaviour {
+	// PRIVATE VARIABLES 
 	private int _laserSpeed;
 	private Transform _transform;
 	private int _timeReload;
 
+	// PUBLIC VARIABLES
 	public GameObject JetPlane;
 
 	public GameController gameController;
@@ -34,6 +36,7 @@ public class LaserController : MonoBehaviour {
 		}
 	}
 
+	// HOW LASER MOVE
 	private void _move()
 	{
 		// Take current position and put into new position
@@ -43,6 +46,7 @@ public class LaserController : MonoBehaviour {
 		this._transform.position = newPosition;
 	}		
 
+	// ON TRIGGER RESPONSE
 	private void OnTriggerEnter2D(Collider2D collide)
 	{
 		// If Laser Strucks Drone WHen Visible
@@ -57,6 +61,7 @@ public class LaserController : MonoBehaviour {
 		}
 	}
 
+	// RESETS LASER RELATIVE TO JETPLANE POSITION
 	private void _reset()
 	{
 		Transform jetTransform = JetPlane.GetComponent<Transform> ();
